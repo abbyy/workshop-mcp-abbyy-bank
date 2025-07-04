@@ -46,6 +46,49 @@ server.tool(
     }
   );
 
+server.registerResource(
+  "customer-info",
+  "abbyy-bank://customer-info",
+  {
+    fullName: z.string().describe("The full name of the customer"),
+    accountNumber: z.string().describe("The account number of the customer"),
+    address: z.object({
+      street: z.string().describe("The street of the customer's address")
+    }).describe("The address of the customer"),
+  },
+  async (uri) => {
+    return {
+      contents: [{ 
+        type: "text",
+        text: JSON.stringify(state.documents.utilityBill, null, 2),
+        uri: uri.toString()
+      }]
+    };
+  }
+);
+
+server.registerPrompt(
+  "open-bank-account",
+  {
+			title: 'Open Bank Account',
+			description: 'Begin the bank account application process with ABBYY Bank',
+			argsSchema: {}
+	},
+  async () => {
+    return {
+				messages: [
+					{
+						role: 'user',
+						content: {
+							type: 'text',
+							text: `I'd like to open a bank account with ABBYY Bank, please.`
+						},
+					},
+				],
+      }
+   }
+)
+
 // State to store documents and validation results
 const state = {
   documents: {
