@@ -4,10 +4,10 @@ import { processUtilityBill, UtilityBillData } from './documentAI.js';
 
 export async function initializeTools(agent: ABBYYBankMCP) {
 
-  let billData: UtilityBillData;
+  let billData: UtilityBillData = undefined;
 
   agent.server.tool("submit-application", "Submit the application to the bank", {}, async () => {
-    if (!billData) {
+    if (billData === undefined) {
       return {
         content: [{
           type: "text",

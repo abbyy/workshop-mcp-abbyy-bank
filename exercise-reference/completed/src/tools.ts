@@ -1,8 +1,28 @@
 import { ABBYYBankMCP } from "./index.js";
+import { processUtilityBill, UtilityBillData } from './documentAI.js';
 import { z } from 'zod';
-import { processUtilityBill } from './documentAI.js';
 
 export async function initializeTools(agent: ABBYYBankMCP) {
+
+  let billData: UtilityBillData | undefined = undefined;
+
+  agent.server.tool("submit-application", "Submit the application to the bank", {}, async () => {
+    if (billData === undefined) {
+      return {
+        content: [{
+          type: "text",
+          text: "Application cannot be submitted yet. Please upload the required documents."
+        }]
+      };
+    }
+
+    return {
+      content: [{
+        type: "text",
+        text: "Application submitted successfully to ABBYY bank. We'll be in touch shortly after reviewing your application."
+      }]
+    };
+  });
 
   agent.server.tool(
     "upload-utility-bill",
@@ -13,6 +33,7 @@ export async function initializeTools(agent: ABBYYBankMCP) {
     async ({ documentFilepath }: { documentFilepath: string }) => {
       try {
         const billData = await processUtilityBill(documentFilepath);
+        localStorage.setItem('utilityBill', JSON.stringify(billData));
         
         return {
           content: [{
