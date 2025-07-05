@@ -1,8 +1,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod';
-// todo: uncomment this 
-//import { processUtilityBill, UtilityBillData } from './documentAI.js';
+import { processUtilityBill, UtilityBillData } from './documentAI.js';
 
 const server = new McpServer({
     name: 'ABBYYBankMCP',
@@ -55,29 +54,6 @@ const state = {
   }
 };
 
-// todo: remove in favor of the interface in documentAI.ts
-export interface UtilityBillData {
-  fullName: string;
-  accountNumber: string;
-  address: {
-    street: string;
-  };
-  issueDate: string;
-  utilityProvider: string;
-}
-
-// todo: remove in favor of the function in documentAI.ts
-const processUtilityBill = async (documentFilepath: string) => {
-  return {
-    fullName: "John Doe",
-    accountNumber: "1234567890",
-    address: {
-      street: "123 Main St",
-    },
-    issueDate: "2024-01-01",
-    utilityProvider: "Electricity Company"
-  }
-}
 
 async function main() {
 	// create a new StdioServerTransport
