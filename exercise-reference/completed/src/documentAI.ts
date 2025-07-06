@@ -3,7 +3,7 @@ import fs from 'fs';
 
 // Initialize the Document AI client with the API key
 const documentAi = new DocumentAi({
-  apiKeyAuth: "Get key from https://developer.abbyy.com",
+  apiKeyAuth: "abbyy_KaADPZtabT2IITvoTozOzZqsUMFFFPb4A63BiFDsDuX27vreL",
 });
 
 // Interface for utility bill data

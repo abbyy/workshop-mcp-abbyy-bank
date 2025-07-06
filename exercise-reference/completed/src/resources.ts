@@ -17,7 +17,7 @@ export async function initializeResources(agent: ABBYYBankMCP) {
     return {
       contents: [{ 
         type: "text",
-        text: localStorage.getItem('utilityBill') || '',
+        text: JSON.stringify(agent.state.documents.utilityBill, null, 2),
         uri: uri.toString()
       }]
     };

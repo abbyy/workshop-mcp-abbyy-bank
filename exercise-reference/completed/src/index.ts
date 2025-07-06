@@ -3,8 +3,16 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { initializeTools } from './tools.js';
 import { initializeResources } from './resources.js';
 import { initializePrompts } from './prompts.js';
+import { UtilityBillData } from './documentAI.js';
 
 export class ABBYYBankMCP {
+  state = {
+    documents: {
+      utilityBill: null as UtilityBillData | null,
+    }
+  };
+  
+
   server = new McpServer({
     name: 'ABBYYBankMCP',
     version: '1.0.0',
