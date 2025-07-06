@@ -21,7 +21,7 @@ Open up the configuration file in any text editor. Replace the file contents wit
     "ABBYY-Bank-Account": {
       "command": "node",
       "args": [
-        "/Users/USERNAME/Documents/src/abbyy/mcp/workshop-mcp-abbyy-bank/exercise-reference/dist/index.js"
+        "/Users/USERNAME/Documents/src/abbyy/mcp/workshop-mcp-abbyy-bank/workspace/dist/index.js"
       ]
     },
   }
@@ -30,7 +30,7 @@ Open up the configuration file in any text editor. Replace the file contents wit
 
 Save the file, then restart Claude.
 
-Upon restarting, you should see a slider  icon in the bottom left corner of the input box.
+Upon restarting, you should see a slider icon in the bottom left corner of the input box.
 
 After clicking on the slider icon, you should see the tools that come with the ABBYY Bank MCP Server.
 
