@@ -13,6 +13,7 @@ export async function initializeTools(agent: ABBYYBankMCP) {
     async ({ documentFilepath }: { documentFilepath: string }) => {
       try {
         const billData = await processUtilityBill(documentFilepath);
+        agent.state.documents.utilityBill = billData;
         
         return {
           content: [{

@@ -12,7 +12,6 @@ export class ABBYYBankMCP {
     }
   };
   
-
   server = new McpServer({
     name: 'ABBYYBankMCP',
     version: '1.0.0',

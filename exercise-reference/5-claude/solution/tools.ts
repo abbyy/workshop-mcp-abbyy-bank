@@ -3,11 +3,8 @@ import { z } from 'zod';
 import { processUtilityBill, UtilityBillData } from './documentAI.js';
 
 export async function initializeTools(agent: ABBYYBankMCP) {
-
-  let billData: UtilityBillData = undefined;
-
   agent.server.tool("submit-application", "Submit the application to the bank", {}, async () => {
-    if (billData === undefined) {
+    if (!agent.state.documents.utilityBill) {
       return {
         content: [{
           type: "text",
@@ -32,7 +29,8 @@ export async function initializeTools(agent: ABBYYBankMCP) {
     },
     async ({ documentFilepath }: { documentFilepath: string }) => {
       try {
-        billData = await processUtilityBill(documentFilepath);
+        const billData = await processUtilityBill(documentFilepath);
+        agent.state.documents.utilityBill = billData;
         
         return {
           content: [{
