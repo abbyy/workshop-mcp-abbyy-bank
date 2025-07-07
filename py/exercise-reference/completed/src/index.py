@@ -1,6 +1,6 @@
-from tools import register_tools
-from resources import register_resources
-from prompts import register_prompts
+from .tools import register_tools
+from .resources import register_resources
+from .prompts import register_prompts
 from mcp.server.fastmcp import FastMCP
 
 # Create the FastMCP server
@@ -19,4 +19,4 @@ register_resources(mcp, state)
 register_prompts(mcp, state)
 
 if __name__ == "__main__":
-    mcp.run() 
+    mcp.run(transport='stdio') 
