@@ -1,0 +1,15 @@
+[project]
+name = "abbyy-bank-mcp-foundation"
+version = "1.0.0"
+description = "ABBYY Bank MCP server - Foundation Exercise"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [] 
