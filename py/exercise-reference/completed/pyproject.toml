@@ -1,0 +1,16 @@
+[project]
+name = "abbyy-bank-mcp"
+version = "1.0.0"
+description = "ABBYY Bank MCP server for bank account onboarding"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [] 

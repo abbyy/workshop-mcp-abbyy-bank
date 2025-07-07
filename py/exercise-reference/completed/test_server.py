@@ -5,7 +5,7 @@ Simple test script to verify the ABBYY Bank MCP server can be imported and initi
 
 import sys
 import asyncio
-from src.index import ABBYYBankMCP
+from index import ABBYYBankMCP
 
 async def test_server():
     """Test that the server can be created and initialized"""
