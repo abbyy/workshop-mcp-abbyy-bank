@@ -1,4 +1,4 @@
-from .document_ai import process_utility_bill
+from document_ai import process_utility_bill
 
 def register_tools(mcp, state):
     @mcp.tool()

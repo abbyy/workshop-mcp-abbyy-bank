@@ -1,4 +1,0 @@
-mcp>=1.0.0
-python-dotenv>=1.0.0
-# Note: In a real implementation, you would add the ABBYY SDK here
-# abbyy-sdk>=1.0.0 

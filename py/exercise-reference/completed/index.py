@@ -2,6 +2,7 @@ from tools import register_tools
 from resources import register_resources
 from prompts import register_prompts
 from mcp.server.fastmcp import FastMCP
+import sys
 
 # Create the FastMCP server
 mcp = FastMCP("ABBYYBankMCP")
@@ -19,4 +20,5 @@ register_resources(mcp, state)
 register_prompts(mcp, state)
 
 if __name__ == "__main__":
+    print("Starting ABBYY Bank MCP server...", file=sys.stderr)
     mcp.run(transport='stdio') 
